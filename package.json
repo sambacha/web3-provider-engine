@@ -1,8 +1,11 @@
 {
-  "name": "web3-provider-engine-updated",
-  "version": "16.0.1",
-  "description": "A retarded JavaScript library for composing Ethereum provider objects using middleware modules",
-  "repository": "https://github.com/MetaMask/web3-provider-engine",
+  "name": "web3-provider-ng",
+  "version": "15.1.0",
+  "description": "improved web3-provider-engine",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sambacha/web3-provider-engine"
+  },
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js && yarn lint",
@@ -13,33 +16,26 @@
     "bundle-engine": "browserify -s ProviderEngine -e index.js -t [ babelify --presets [ @babel/preset-env ] ] > dist/ProviderEngine.js",
     "lint": "eslint --quiet --ignore-path .gitignore ."
   },
-  "files": [
-    "*.js",
-    "dist",
-    "subproviders",
-    "util"
-  ],
+  "author": "SEE CONTRIBUTORS",
   "license": "MIT",
-  "resolutions": {
-    "ganache-core/**/elliptic": "^6.5.2"
-  },
   "dependencies": {
+    "@trufflesuite/eth-json-rpc-filters": "^4.1.2-1",
+    "@trufflesuite/eth-json-rpc-infura": "^4.0.3-0",
+    "@trufflesuite/eth-json-rpc-middleware": "^4.4.2-1",
+    "@trufflesuite/eth-sig-util": "^1.4.2",
     "async": "^2.5.0",
     "backoff": "^2.5.0",
+    "bluebird": "^3.7.2",
     "clone": "^2.0.0",
     "cross-fetch": "^2.1.0",
+    "es6-promisify": "^6.1.1",
     "eth-block-tracker": "^4.4.2",
-    "eth-json-rpc-filters": "^4.2.1",
-    "eth-json-rpc-infura": "^5.1.0",
-    "eth-json-rpc-middleware": "^6.0.0",
-    "eth-rpc-errors": "^3.0.0",
-    "eth-sig-util": "^1.4.2",
+    "eth-json-rpc-errors": "^2.0.2",
     "ethereumjs-block": "^1.2.2",
     "ethereumjs-tx": "^1.2.0",
     "ethereumjs-util": "^5.1.5",
     "ethereumjs-vm": "^2.3.4",
     "json-stable-stringify": "^1.0.1",
-    "promise-to-callback": "^1.0.0",
     "readable-stream": "^2.2.9",
     "request": "^2.85.0",
     "semaphore": "^1.0.3",
@@ -55,11 +51,15 @@
     "browserify": "^16.5.0",
     "eslint": "^6.2.0",
     "ethjs": "^0.3.6",
-    "ganache-core": "^2.13.0",
+    "ganache-core": "^2.7.0",
     "tape": "^4.4.0"
   },
   "browser": {
     "request": false,
     "ws": false
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   }
 }
