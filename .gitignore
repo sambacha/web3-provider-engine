@@ -1,9 +1,9 @@
+*.tgz
+*.log
+*.tar.gz
+*.zip
 dist
 package-lock.json
-
-# Created by https://www.gitignore.io/api/osx,node
-
-### OSX ###
 .DS_Store
 .AppleDouble
 .LSOverride
