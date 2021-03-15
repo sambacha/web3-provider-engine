@@ -5,12 +5,12 @@
   "repository": "https://github.com/backbonecabal/web3-provider-nginx",
   "main": "dist/commonjs/index.js",
   "module": "dist/modules/index.js",
-  "types": "dist/modules/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "ts-node node_modules/tape/bin/tape test/index.ts",
+    "test": "npx ts-node node_modules/tape/bin/tape test/index.ts",
     "prepublish": "npm run build",
-    "build": "tsc && tsc -p tsconfig.module.json",
-    "lint": "eslint --ignore-path .gitignore --fix ."
+    "build": "npx tsc && tsc -p tsconfig.module.json",
+    "lint": "npx eslint --ignore-path .gitignore --fix ."
   },
   "author": "SEE CONTRIBUTORS",
   "license": "MIT",
