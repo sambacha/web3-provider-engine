@@ -1,17 +1,17 @@
 {
   "name": "web3-provider-engine",
-  "version": "16.0.1",
+  "version": "17.0.0",
   "description": "A JavaScript library for composing Ethereum provider objects using middleware modules",
   "repository": "https://github.com/MetaMask/web3-provider-engine",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js && yarn lint",
-    "prepublishOnly": "yarn build && yarn bundle",
-    "build": "babel zero.js index.js -d dist/es5 && babel subproviders -d dist/es5/subproviders && babel util -d dist/es5/util",
-    "bundle": "mkdir -p ./dist && yarn bundle-engine && yarn bundle-zero",
-    "bundle-zero": "browserify -s ZeroClientProvider -e zero.js -t [ babelify --presets [ @babel/preset-env ] ] > dist/ZeroClientProvider.js",
-    "bundle-engine": "browserify -s ProviderEngine -e index.js -t [ babelify --presets [ @babel/preset-env ] ] > dist/ProviderEngine.js",
-    "lint": "eslint --quiet --ignore-path .gitignore ."
+    "prepublishOnly": "npm run-script build && npm run-script bundle",
+    "build": "npx babel zero.js index.js -d dist/es5 && npx babel subproviders -d dist/es5/subproviders && npx babel util -d dist/es5/util",
+    "bundle": "mkdir -p ./dist && npx bundle-engine && npx bundle-zero",
+    "bundle-zero": "npx browserify -s ZeroClientProvider -e zero.js -t [ babelify --presets [ @babel/preset-env ] ] > dist/ZeroClientProvider.js",
+    "bundle-engine": "npx browserify -s ProviderEngine -e index.js -t [ babelify --presets [ @babel/preset-env ] ] > dist/ProviderEngine.js",
+    "lint": "npx eslint --quiet ."
   },
   "files": [
     "*.js",
@@ -24,6 +24,7 @@
     "ganache-core/**/elliptic": "^6.5.2"
   },
   "dependencies": {
+    "@ethereumjs/tx": "^3.0.2",
     "async": "^2.5.0",
     "backoff": "^2.5.0",
     "clone": "^2.0.0",
@@ -31,7 +32,7 @@
     "eth-block-tracker": "^4.4.2",
     "eth-json-rpc-filters": "^4.2.1",
     "eth-json-rpc-infura": "^5.1.0",
-    "eth-json-rpc-middleware": "^6.0.0",
+    "eth-json-rpc-middleware": "https://github.com/sambacha/eth-json-rpc-middleware/releases/download/tgz/eth-json-rpc-middleware-7.0.0.tgz",
     "eth-rpc-errors": "^3.0.0",
     "eth-sig-util": "^1.4.2",
     "ethereumjs-block": "^1.2.2",
